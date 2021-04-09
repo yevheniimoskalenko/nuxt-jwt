@@ -11,14 +11,26 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.1",
+    "bcrypt": "^5.0.0",
     "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.12",
     "node-sass": "^4.12.0",
     "nuxt": "^2.0.0",
     "sass-loader": "^7.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-nuxt": "^1.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.8.0",
+    "nodemon": "^1.18.9",
+    "prettier": "2.2.1"
   }
 }
