@@ -26,7 +26,7 @@
 <script>
 export default {
   head: {
-    title: 'Авторизація на сайті'
+    title: 'Авторизація на сайті',
   },
   layout: 'empty',
 
@@ -35,24 +35,24 @@ export default {
       loading: false,
       controlers: {
         email: 'testjokerqwerty@gmail.com',
-        password: '12345'
+        password: '12345',
       },
       rules: {
         email: [
           {
             required: true,
             message: 'email не повинен бути пустим',
-            trigger: 'blur'
-          }
+            trigger: 'blur',
+          },
         ],
         password: [
           {
             required: true,
             message: 'Пароль не повинен бути пустим',
-            trigger: 'blur'
-          }
-        ]
-      }
+            trigger: 'blur',
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -63,9 +63,13 @@ export default {
           try {
             const data = {
               email: this.controlers.email,
-              password: this.controlers.password
+              password: this.controlers.password,
             };
             this.$store.dispatch('auth/login', data);
+            this.$message({
+              type: 'success',
+              message: 'Успіх',
+            });
           } catch (e) {
           } finally {
             this.loading = false;
@@ -73,8 +77,8 @@ export default {
         }
       });
       e.preventDefault();
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 export const state = () => ({
-  token: ''
+  token: '',
 });
 export const getters = {};
 export const mutations = {};
@@ -11,21 +11,18 @@ export const actions = {
       console.log(e);
     }
   },
-  login({ commit }, payload) {
+  async login({ commit }, payload) {
     try {
-      new Promise(async (resolve, reject) => {
-        const data = await this.$axios.$post(
-          'http://localhost:5000/api/login',
-          payload
-        );
-        if (data.status === 'ok') {
-          await localStorage.setItem('token', data.payload);
-          resolve();
-        }
-        reject();
-      });
+      const data = await this.$axios.$post(
+        'http://localhost:5000/api/login',
+        payload
+      );
+      if (data.status === 'success') {
+        await localStorage.setItem('token', data.payload);
+      }
     } catch (e) {
-      console.log(e);
+      commit('setError', e.response.data, { root: true });
+      throw e;
     }
-  }
+  },
 };
