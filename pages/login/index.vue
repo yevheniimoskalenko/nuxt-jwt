@@ -65,11 +65,12 @@ export default {
               email: this.controlers.email,
               password: this.controlers.password,
             };
-            this.$store.dispatch('auth/login', data);
+            await this.$store.dispatch('auth/login', data);
             this.$message({
               type: 'success',
               message: 'Успіх',
             });
+            await this.$router.push('/');
           } catch (e) {
           } finally {
             this.loading = false;

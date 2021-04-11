@@ -5,18 +5,18 @@ module.exports = async (req, res) => {
   if (token === '') {
     return res.json({
       status: 'error',
-      message: 'не встановлений токен'
+      message: 'не встановлений токен',
     });
   }
   try {
     const obj = jwt.verify(token, process.env.secret);
     return res.json({
-      status: 'ok',
+      status: 'success',
       payload: {
-        obj
-      }
+        obj,
+      },
     });
   } catch (err) {
-    return res.json(err);
+    return res.status(401).json(err);
   }
 };
